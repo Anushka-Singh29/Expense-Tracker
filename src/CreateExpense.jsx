@@ -44,13 +44,14 @@ const CreateExpense = (props) => {
                 fontFamily: 'gilroy',
                 fontWeight: '500',
                 fontSize: '50px',
-                position: 'relative',
+                position: 'absolute',
                 left: ' 36%',
+                top:'7%'
 
             }}>Expense Tracker</h2>
             <form style={{
                 padding: '20px 20px',
-                height: ' 100px',
+                height: ' 130px',
                 width: '800px',
                 backgroundColor: '#DEE7E7',
                 borderRadius: '10px',

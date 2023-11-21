@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import CreateExpense from './CreateExpense.jsx'
 import ShowExpense from './ShowExpense.jsx'
+import Total from './Total.jsx'
 
 // const App = () =>{
 
@@ -56,7 +57,7 @@ const App = () => {
       <ShowExpense all={all} setallExpenses={setallExpenses} />
       {/* <h3 style={{fontFamily:'gilroy', color:'brown', fontWeight:400, fontSize:'16px'}}>{JSON.stringify(users.username)}</h3> */}
 
-
+<Total all={all} />
     </div>
   )
 }

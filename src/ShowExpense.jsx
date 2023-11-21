@@ -15,14 +15,24 @@ const ShowExpense = (props) => {
       data = all.map((all, index) => {
         return (
           <div key={index}>
-            <div id="card">
+            <div id="card" style={{backgroundColor:'#2e4057',
+          color:'white',
+          width:'250px',
+          margin:'20px 10px',
+          height:'200px',
+          borderRadius:'10px',
+          padding:'10px 10px'}}>
             <h1> {all.des}</h1>
             <h1> {all.category}</h1>
+            <h1> {all.amount}</h1>
               <button style={{
                 height:'40px',
                 width:'80px',
                 backgroundColor:'#B0413E',
                 color:'white',
+                position:'relative',
+                bottom:'-28%',
+                left:'70%',
                 borderRadius:'5px'
               }} onClick={()=>deleteHandle(index)}>Delete Expense</button> 
             
@@ -39,7 +49,7 @@ const ShowExpense = (props) => {
         top:'50%',
         left:'21%',
         fontWeight:'200',
-        fontSize:'17px',
+        fontSize:'12px',
         fontFamily:'gilroy',
         position:'absolute'
       }}>{data}</h2>
