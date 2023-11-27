@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { toast } from 'react-toastify';
+
 
 
 const CreateExpense = (props) => {
@@ -7,10 +7,12 @@ const CreateExpense = (props) => {
 
     // console.log(props)
     const { all, setallExpenses } = props;
-
     const [des, setdes] = useState("")
     const [category, setcategory] = useState("")
     const [amount, setamount] = useState("")
+
+    
+    const [total, setTotal] = useState(0);
 
     const submitHandler = (e) => {
         e.preventDefault()
@@ -38,6 +40,22 @@ const CreateExpense = (props) => {
         // setuser([...users, newUser])
     }
 
+
+    const handleInputChange = (event) => {
+        setamount(event.target.value);
+    };
+
+    const handleEnter = () => {
+        const number = parseFloat(amount);
+
+        if (!isNaN(number)) {
+            setTotal((prevTotal) => prevTotal + number);
+            setamount('');
+        } else {
+            alert('Please enter a valid amount!');
+        }
+    };
+
     return (
         <div>
             <h2 style={{
@@ -46,7 +64,7 @@ const CreateExpense = (props) => {
                 fontSize: '50px',
                 position: 'absolute',
                 left: ' 36%',
-                top:'7%'
+                top: '7%'
 
             }}>Expense Tracker</h2>
             <form style={{
@@ -65,7 +83,6 @@ const CreateExpense = (props) => {
                 <input
                     style={{
                         fontSize: '15px',
-
                         height: '50px',
                         padding: '10px',
                         margin: '10px',
@@ -78,7 +95,6 @@ const CreateExpense = (props) => {
                     value={des} />
                 <select style={{
                     fontSize: '15px',
-
                     height: '72px',
                     padding: '10px',
                     margin: '10px',
@@ -98,21 +114,8 @@ const CreateExpense = (props) => {
                     margin: '10px',
                     fontFamily: 'gilroy',
                     borderRadius: '7px'
-                }}
-                    type="number"
-                    placeholder='amount'
-                    onChange={(e) => setamount(e.target.value)}
-                    value={amount} />
-
-                <input style={{
-                    fontSize: '15px',
-                    // height: '50px',
-                    padding: '10px',
-                    margin: '10px',
-                    fontFamily: 'gilroy',
-                    borderRadius: '7px'
-                }} type="checkbox" /> Is Income
-                <button style={{
+                }} placeholder='Enter Expense amount' type="text" value={amount} onChange={handleInputChange} />
+                <button onClick={handleEnter} style={{
                     backgroundColor: 'Highlight',
                     color: 'whitesmoke',
                     fontSize: '15px',
@@ -121,7 +124,9 @@ const CreateExpense = (props) => {
                     margin: '10px',
                     fontFamily: 'gilroy',
                     borderRadius: '7px'
-                }}>ADD EXPENSE</button>
+                }}>Add Expense</button>
+                <p>Total Expenses: {total}</p>
+           
             </form>
         </div >
     )
