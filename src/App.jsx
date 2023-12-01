@@ -7,7 +7,8 @@ import ShowExpense from './ShowExpense.jsx'
 
 const App = () => {
 
-  const [all, setallExpenses] = useState([])
+  const [all, setallExpenses] = useState(JSON.parse(localStorage.getItem('all')) || []);
+  
 
   return (
 

@@ -18,9 +18,9 @@ const ShowExpense = (props) => {
         <div key={index}>
 
           <div id="card" style={{
-            justifyContent:'center',
-            alignItems:'center',
-            position:'relative',
+            justifyContent: 'center',
+            alignItems: 'center',
+            position: 'relative',
             backgroundColor: '#DEE7E7',
             color: '#2E2E3A',
             width: '500px',
@@ -29,15 +29,12 @@ const ShowExpense = (props) => {
             borderRadius: '10px',
             padding: '10px 10px'
           }}>
-            <div id="text" style={{display:'flex'}}>
-            <h1 style={{paddingRight:'50px'}}> {all.des}</h1> 
-            <h1> {all.category}</h1>
-            <h1> {all.amount}</h1>
+            <div id="text" style={{ display: 'flex' }}>
+              <h1 style={{ paddingRight: '50px' }}> {all.des}</h1>
+              <h1> {all.category}</h1>
+              <h1> {all.amount}</h1>
 
             </div>
-           
-            
-
             <button style={{
               height: '40px',
               width: '180px',

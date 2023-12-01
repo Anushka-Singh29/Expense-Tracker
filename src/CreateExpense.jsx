@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import { toast } from 'react-toastify';
 
 
 const CreateExpense = (props) => {
@@ -37,6 +37,8 @@ const CreateExpense = (props) => {
         copyexp.push(newExp)
         setallExpenses(copyexp)
 
+    localStorage.setItem('all', JSON.stringify(copyexp));
+
         // setuser([...users, newUser])
     }
 
@@ -55,7 +57,6 @@ const CreateExpense = (props) => {
             alert('Please enter a valid amount!');
         }
     };
-
     return (
         <div>
             <h2 style={{
